@@ -1,0 +1,5 @@
+{
+	"name"        : "Orthodox-Union/ou-gf-email-capture",
+	"description" : "Gravity Forms to Silverpop",
+	"type"        : "wordpress-plugin"
+}
