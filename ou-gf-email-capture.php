@@ -10,7 +10,7 @@
  * Author: Yocheved Blum
  */
 
- include_once 'silverpopFunctions.php'; 
+// include_once 'silverpopFunctions.php'; 
  
 // Add the custom field buttons to the Advanced Fields group
 add_filter('gform_add_field_buttons', 'add_email_subscribe_field');
