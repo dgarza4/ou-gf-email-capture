@@ -10,7 +10,7 @@
  * Author: Yocheved Blum
  */
 
-// include_once 'silverpopFunctions.php'; 
+include_once 'silverpopFunctions.php'; 
  
 // Add the custom field buttons to the Advanced Fields group
 add_filter('gform_add_field_buttons', 'add_email_subscribe_field');
@@ -122,7 +122,8 @@ function newsletter_settings( $position, $form_id ){
                 'Main IFS List' => '3336350',
                 'IFS Main Referrals DB' => '3390925',
                 'NCSY' => '3954994',
-                'JLIC Main' => '3955085'
+                'JLIC Main' => '3955085',
+                'Yachad Regions' => '4659496'
             );
         ?>
     
