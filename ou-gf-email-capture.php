@@ -103,7 +103,7 @@ function newsletter_settings( $position, $form_id ){
             var cl = <?php echo json_encode($contactLists) ?>;
             document.getElementById('form_field_newsletter').innerHTML = "";
             for(var i=0; i < cl.length; i++){   
-                if(db == cl[i]['PARENT_NAME'] && cl[i]['IS_FOLDER'] == 'false'){
+                if(db == cl[i]['PARENT_NAME'] && cl[i]['IS_FOLDER'] == 'false' && cl[i]['TYPE'] === "18"){
                     var option = document.createElement("option");
                     option.text = cl[i]['NAME'];
                     option.name = "newsletter";
