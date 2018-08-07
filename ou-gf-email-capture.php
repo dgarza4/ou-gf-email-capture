@@ -6,7 +6,7 @@
  *
  * Plugin Name: OU GF Email Capture
  * Description: Adds email subscribe field connected to silverpop to gravity forms
- * Version: 0.4
+ * Version: 0.5
  * Author: Yocheved Blum
  */
 
