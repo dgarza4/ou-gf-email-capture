@@ -21,25 +21,25 @@ if (!function_exists('executeSilverpop')) {
       $response = isset($results['results']) && is_array($results['results']) ? array_values($results['results']) : array();
   	} else if($action == 'addRecipient') {
   		if (isset($data['email']) && $data['email'] !== '' && isset($data['newsletter']) && $data['newsletter'] !== '') {
-        $data = array(
+        $params = array(
           'fields' => array(
             'EMAIL' => $data['email']
           ),
           'contactLists' => array($data['newsletter'])
         );
-        if (isset($data['name']['first']) && $data['name']['first'] !== '') $data['fields']['FIRST NAME'] = $data['name']['first'];
-        if (isset($data['name']['last']) && $data['name']['last'] !== '') $data['fields']['LAST NAME'] = $data['name']['last'];
-        if (isset($data['address']['street']) && $data['address']['street'] !== '') $data['fields']['ADDRESS'] = $data['address']['street'];
-        if (isset($data['address']['street2']) && $data['address']['street2'] !== '') $data['fields']['ADDRESS2'] = $data['address']['street2'];
-        if (isset($data['address']['city']) && $data['address']['city'] !== '') $data['fields']['CITY'] = $data['address']['city'];
-        if (isset($data['address']['state']) && $data['address']['state'] !== '') $data['fields']['STATE'] = $data['address']['state'];
-        if (isset($data['address']['zip']) && $data['address']['zip'] !== '') $data['fields']['POSTAL CODE'] = $data['address']['zip'];
-        if (isset($data['address']['country']) && $data['address']['country'] !== '') $data['fields']['COUNTRY'] = $data['address']['country'];
-        if (isset($data['form']) && $data['form'] !== '') $data['fields']['COLLECTION NAME'] = $data['form'];
+        if (isset($data['name']['first']) && $data['name']['first'] !== '') $params['fields']['FIRST NAME'] = $data['name']['first'];
+        if (isset($data['name']['last']) && $data['name']['last'] !== '') $params['fields']['LAST NAME'] = $data['name']['last'];
+        if (isset($data['address']['street']) && $data['address']['street'] !== '') $params['fields']['ADDRESS'] = $data['address']['street'];
+        if (isset($data['address']['street2']) && $data['address']['street2'] !== '') $params['fields']['ADDRESS2'] = $data['address']['street2'];
+        if (isset($data['address']['city']) && $data['address']['city'] !== '') $params['fields']['CITY'] = $data['address']['city'];
+        if (isset($data['address']['state']) && $data['address']['state'] !== '') $params['fields']['STATE'] = $data['address']['state'];
+        if (isset($data['address']['zip']) && $data['address']['zip'] !== '') $params['fields']['POSTAL CODE'] = $data['address']['zip'];
+        if (isset($data['address']['country']) && $data['address']['country'] !== '') $params['fields']['COUNTRY'] = $data['address']['country'];
+        if (isset($data['form']) && $data['form'] !== '') $data['fields']['COLLECTION NAME'] = $params['form'];
           
         curl_setopt($ch, CURLOPT_URL, 'https://orthodox:ohFahl2tuse9aige@silverpop-api-staging.dokku03.aws.oustatic.com/api/databases/'.$databaseID.'/contact');  
         curl_setopt($ch, CURLOPT_POST, 1);
-        curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($data));  
+        curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($params));  
         
         $results = json_decode(curl_exec($ch), true);
         $http_code = curl_getinfo($ch, CURLINFO_HTTP_CODE);
